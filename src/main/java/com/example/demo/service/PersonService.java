@@ -22,8 +22,8 @@ public class PersonService {
         return personRepository.findAll();
     }
 
-    public Optional<PersonModel> findById(Integer id) {
-        return personRepository.findById(id);
+    public PersonModel findById(Integer id) {
+        return personRepository.findById(id).orElseThrow(() -> new Error("Person error"));
     }
 
     public PersonModel save(PersonModel person) {
